@@ -1,0 +1,34 @@
+# --- Per-machine settings (camera number, COM port) ---
+config.local.yaml
+.env
+
+# --- Big files: these go to Google Drive, not Git ---
+data/
+datasets/
+runs/
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.mp4
+*.avi
+*.pt
+*.onnx
+# ...but allow small images in docs (wiring diagrams, screenshots)
+!docs/**/*.png
+!docs/**/*.jpg
+
+# --- Inspection databases and logs ---
+*.db
+*.sqlite
+*.log
+
+# --- Python junk ---
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# --- Editor and Windows junk ---
+.vscode/
+Thumbs.db
+desktop.ini

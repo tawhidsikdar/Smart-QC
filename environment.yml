@@ -1,0 +1,15 @@
+name: smartqc
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - numpy
+      - opencv-python
+      - pyserial
+      - pyyaml
+      - streamlit
+      - pandas
+      - pytest
