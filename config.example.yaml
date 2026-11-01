@@ -1,0 +1,19 @@
+# SmartQC machine settings (EXAMPLE).
+# Copy this file to config.local.yaml and change the values for YOUR computer.
+# config.local.yaml is NOT in Git: every machine keeps its own.
+
+camera:
+  index: 0                 # Windows camera number for the C920 (0 = first camera)
+  settings_file: engine/camera.json
+
+esp32:
+  port: COM3               # Windows: COM3, COM4...  Linux: /dev/ttyUSB0
+  baud: 115200
+
+model:
+  path: models/smartqc_best.pt   # trained YOLO model, downloaded from Google Drive
+  device: 0                # 0 = first NVIDIA GPU, cpu = no GPU
+
+paths:
+  data_dir: data
+  database: data/smartqc.db
