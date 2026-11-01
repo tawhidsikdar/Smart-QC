@@ -57,6 +57,35 @@ elif torch.cuda.is_available():
     report("OK", "Compute", f"GPU {torch.cuda.get_device_name(0)}")
 else:
     report("FAIL", "Compute", "config asks for GPU but CUDA is not available")
+# 5. Camera (WARN only: the C920 may not be plugged in yet)
+import cv2
+cam_index = config["camera"]["index"]
+cap = cv2.VideoCapture(cam_index)
+ok = False
+if cap.isOpened():
+    ok, frame = cap.read()
+cap.release()
+if ok:
+    height, width = frame.shape[:2]
+    report("OK", "Camera", f"index {cam_index}, {width}x{height}")
+else:
+    report("WARN", "Camera", f"no picture from camera index {cam_index}")
+
+# 6. ESP32 serial port (WARN only: the board may not be plugged in)
+from serial.tools import list_ports
+port = str(config["esp32"]["port"])
+ports_seen = [p.device for p in list_ports.comports()]
+if port in ports_seen:
+    report("OK", "ESP32 port", port)
+else:
+    report("WARN", "ESP32 port", f"{port} not found; ports seen: {ports_seen or 'none'}")
+
+# 7. Trained model file (WARN only: there is no model before training)
+model_path = ROOT / config["model"]["path"]
+if model_path.exists():
+    report("OK", "Model", model_path.name)
+else:
+    report("WARN", "Model", f"{config['model']['path']} not found (normal before training)")
 
 print()
 print("ALL GOOD" if failures == 0 else f"{failures} problem(s) to fix")
