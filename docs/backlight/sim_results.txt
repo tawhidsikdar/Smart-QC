@@ -1,0 +1,70 @@
+Backlight uniformity simulation results (2026-11-05)
+====================================================
+Model: Lambertian LEDs (2835, 120 deg beam), irradiance on the diffuser plane,
+light-box walls as mirrors with reflectance R (R=0 = black / no walls).
+Diffuser smoothing and light recycling are NOT included, so real results should be
+equal or better.
+
+1) Comparison of layouts  (scripts/backlight_sim.py)
+   Box 250 x 309 mm, evaluation window 230 x 290 mm
+
+config                                    H  nLED   P/H |        black walls |   white/mirror walls R=0.9
+strip 60/m, rows 30.9 mm                 20   150  1.54 | min/max  56.2%       | min/max  79.6%  ripple +-11.4%
+strip 60/m, rows 38.6 mm                 20   120  1.93 | min/max  45.8%       | min/max  65.1%  ripple +-21.1%
+PCB grid 25 x 25.75                      20   120  1.29 | min/max  61.0%       | min/max  83.0%  ripple +- 9.3%
+PCB grid 31.25 x 30.9                    20    80  1.56 | min/max  53.9%       | min/max  67.5%  ripple +-19.4%
+PCB grid 41.7 x 44.1                     20    42  2.21 | min/max  30.1%       | min/max  37.0%  ripple +-45.9%
+PCB grid 50 x 51.5                       20    30  2.58 | min/max  19.4%       | min/max  24.1%  ripple +-61.2%
+
+strip 60/m, rows 30.9 mm                 30   150  1.03 | min/max  47.4%       | min/max  92.9%  ripple +- 3.7%
+strip 60/m, rows 38.6 mm                 30   120  1.29 | min/max  46.7%       | min/max  87.6%  ripple +- 6.6%
+PCB grid 25 x 25.75                      30   120  0.86 | min/max  47.9%       | min/max  93.8%  ripple +- 3.2%
+PCB grid 31.25 x 30.9                    30    80  1.04 | min/max  48.7%       | min/max  91.8%  ripple +- 4.3%
+PCB grid 41.7 x 44.1                     30    42  1.47 | min/max  43.7%       | min/max  74.5%  ripple +-14.6%
+PCB grid 50 x 51.5                       30    30  1.72 | min/max  35.9%       | min/max  59.6%  ripple +-25.3%
+
+strip 60/m, rows 30.9 mm                 40   150  0.77 | min/max  42.1%       | min/max  93.2%  ripple +- 3.5%
+strip 60/m, rows 38.6 mm                 40   120  0.97 | min/max  42.3%       | min/max  92.5%  ripple +- 3.9%
+PCB grid 25 x 25.75                      40   120  0.64 | min/max  42.2%       | min/max  93.3%  ripple +- 3.5%
+PCB grid 31.25 x 30.9                    40    80  0.78 | min/max  42.8%       | min/max  93.1%  ripple +- 3.6%
+PCB grid 41.7 x 44.1                     40    42  1.10 | min/max  42.7%       | min/max  89.5%  ripple +- 5.5%
+PCB grid 50 x 51.5                       40    30  1.29 | min/max  40.2%       | min/max  82.8%  ripple +- 9.4%
+
+strip 60/m, rows 30.9 mm                 54   150  0.58 | min/max  39.1%       | min/max  93.0%  ripple +- 3.6%
+strip 60/m, rows 38.6 mm                 54   120  0.72 | min/max  39.3%       | min/max  93.0%  ripple +- 3.6%
+PCB grid 25 x 25.75                      54   120  0.48 | min/max  39.0%       | min/max  93.0%  ripple +- 3.6%
+PCB grid 31.25 x 30.9                    54    80  0.58 | min/max  39.3%       | min/max  93.1%  ripple +- 3.6%
+PCB grid 41.7 x 44.1                     54    42  0.83 | min/max  39.9%       | min/max  92.6%  ripple +- 3.9%
+PCB grid 50 x 51.5                       54    30  0.96 | min/max  39.7%       | min/max  90.9%  ripple +- 4.8%
+
+strip 60/m, rows 30.9 mm                 70   150  0.44 | min/max  38.0%       | min/max  93.2%  ripple +- 3.5%
+strip 60/m, rows 38.6 mm                 70   120  0.55 | min/max  38.1%       | min/max  93.2%  ripple +- 3.5%
+PCB grid 25 x 25.75                      70   120  0.37 | min/max  38.0%       | min/max  93.2%  ripple +- 3.5%
+PCB grid 31.25 x 30.9                    70    80  0.45 | min/max  38.1%       | min/max  93.2%  ripple +- 3.5%
+PCB grid 41.7 x 44.1                     70    42  0.63 | min/max  38.4%       | min/max  93.2%  ripple +- 3.5%
+PCB grid 50 x 51.5                       70    30  0.74 | min/max  38.6%       | min/max  92.9%  ripple +- 3.7%
+
+2) Chosen layout  (scripts/final_layout_sim.py)
+   Box 250 x 296 mm (fits between the holder legs), window 190 x 286 mm
+
+Strip 60 LED/m (16.67 mm) along X, 8 rows across Z (37 mm), box 250 x 296; window 190 x 286
+R=0.00 H= 25.0 nLED=120 P/H=1.48  window min/max= 53.1%  centre ripple +- 8.87%
+R=0.00 H= 35.0 nLED=120 P/H=1.06  window min/max= 51.4%  centre ripple +- 2.91%
+R=0.00 H= 45.0 nLED=120 P/H=0.82  window min/max= 48.3%  centre ripple +- 2.07%
+R=0.00 H= 53.5 nLED=120 P/H=0.69  window min/max= 46.4%  centre ripple +- 2.58%
+R=0.00 H= 65.0 nLED=120 P/H=0.57  window min/max= 44.9%  centre ripple +- 3.37%
+R=0.85 H= 25.0 nLED=120 P/H=1.48  window min/max= 82.7%  centre ripple +- 8.17%
+R=0.85 H= 35.0 nLED=120 P/H=1.06  window min/max= 89.9%  centre ripple +- 1.88%
+R=0.85 H= 45.0 nLED=120 P/H=0.82  window min/max= 91.1%  centre ripple +- 0.60%
+R=0.85 H= 53.5 nLED=120 P/H=0.69  window min/max= 91.2%  centre ripple +- 0.41%
+R=0.85 H= 65.0 nLED=120 P/H=0.57  window min/max= 91.2%  centre ripple +- 0.48%
+R=0.95 H= 25.0 nLED=120 P/H=1.48  window min/max= 84.4%  centre ripple +- 8.09%
+R=0.95 H= 35.0 nLED=120 P/H=1.06  window min/max= 94.9%  centre ripple +- 1.75%
+R=0.95 H= 45.0 nLED=120 P/H=0.82  window min/max= 96.6%  centre ripple +- 0.43%
+R=0.95 H= 53.5 nLED=120 P/H=0.69  window min/max= 96.9%  centre ripple +- 0.20%
+R=0.95 H= 65.0 nLED=120 P/H=0.57  window min/max= 97.0%  centre ripple +- 0.16%
+
+Reading the results
+- LED spots disappear once the LED spacing P is at most ~0.8 x the distance H (ripple < 0.6 %).
+- Black or missing walls lose ~half the brightness at the edges; white walls keep 91-97 %.
+- Chosen: H = 53.5 mm, 120 LEDs, white light box.
