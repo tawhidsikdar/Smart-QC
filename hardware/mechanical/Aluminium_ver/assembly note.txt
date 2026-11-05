@@ -1,0 +1,2 @@
+assembly note:
+1. assemble 40T first the match 20T
