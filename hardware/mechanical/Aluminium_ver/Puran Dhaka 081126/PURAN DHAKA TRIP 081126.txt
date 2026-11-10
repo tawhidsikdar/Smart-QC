@@ -1,0 +1,39 @@
+PURAN DHAKA TRIP 08/11/26
+
+Aluminium Profiles:
+2040:
+700mm X2
+
+2020:
+200mm X4
+350mm X4
+660mm X2
+450mm X2
+430mm X1
+390mm X1
+
+2. 8mm steel shaft:
+425mm X3
+460mm X2
+
+2. 90 deg corner bracket(boro) - 18x
+3. 90 deg (choto) - 15x
+
+4. Screw and nuts:
+
+M5 screw - 50 (L10mm)
+	   20 (L30mm)
+
+M4 screw - 30 (L15mm)
+M4 nut   - 30 
+
+M3 screw - 10 (L10)
+
+5. Bearing:
+
+KFL08 - 8x
+688zz - 2x
+
+6. Laser Cutting:
+stock size ( sheet metal 5mm ) - 450mm X 350mm
+stock size (Acrylic)   - 900mm X 550mm
