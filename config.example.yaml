@@ -1,14 +1,22 @@
-# SmartQC machine settings (EXAMPLE).
-# Copy this file to config.local.yaml and change the values for YOUR computer.
+# SmartQC default settings (in Git, the same on every computer).
+# To change something on ONE computer, create config.local.yaml and put ONLY
+# the settings that differ there, under the same section names.
 # config.local.yaml is NOT in Git: every machine keeps its own.
+# Measured machine numbers (steps/mm, ROW_SIGN, focus...) do NOT go here:
+# the calibration tools write them to camera.json / machine.json.
+
+hardware:
+  camera: fake             # fake = saved photos from a folder; real = the C920
+  esp32: fake              # fake = tools/fake_esp32.py; real = the ESP32 board
 
 camera:
   index: 0                 # Windows camera number for the C920 (0 = first camera)
+  backend: dshow           # DirectShow: the reliable way to open the C920 on Windows
   settings_file: engine/camera.json
 
-esp32:
+serial:
   port: COM3               # Windows: COM3, COM4...  Linux: /dev/ttyUSB0
-  baud: 115200
+  baud: 115200             # must match the ESP32 firmware (Interface sheet)
 
 model:
   path: models/smartqc_best.pt   # trained YOLO model, downloaded from Google Drive
