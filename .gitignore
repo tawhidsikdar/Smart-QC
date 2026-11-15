@@ -22,6 +22,7 @@ runs/
 *.db
 *.sqlite
 *.log
+logs/
 
 # --- Python junk ---
 __pycache__/
