@@ -34,7 +34,7 @@ def setup_logging(name = "smartqc" , console_level = logging.INFO):
 
     root.addHandler(console)
 
-    logging.getLogger(__name__).info("Logging started,writing to %s",log_path)
+    logging.getLogger(__name__).info("Logging started, writing to %s",log_path)
     return log_path
 
 if __name__ == "__main__":
