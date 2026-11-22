@@ -1,8 +1,7 @@
 #pragma once
 #include <Arduino.h>
-// SmartQC carrier board Rev E (pin map unchanged from Rev D): the only ESP32 pins firmware may use.
-// Source of truth: Electrical Master Document Rev D "Settings and pin map", plus the Rev E change document
-// (hardware/electrical/), which confirms: "Pins stay as Rev D".
+// SmartQC carrier board Rev E: the only ESP32 pins firmware may use.
+// Source of truth: hardware/electrical/SmartQC Electrical Master Document, Rev E.docx, section 6 "ESP32 pin map".
 // Change this file only after a new hardware revision of the master document.
 // All other GPIOs are unconnected on the board. Strapping pins (0, 2, 5, 12, 15) and USB serial (1, 3) are avoided.
 

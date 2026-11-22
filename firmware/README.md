@@ -36,7 +36,7 @@ treats the folder that holds `platformio.ini` as the project. Code goes in `src/
   also downloads the pinned tools first). Later builds take seconds.
 
 ## Pin map and one-step upload
-- `include/pins.h` holds the Rev D pin map. Firmware uses these names only, never raw pin numbers.
+- `include/pins.h` holds the Rev E pin map (from the Rev E master document in `hardware/electrical/`). Firmware uses these names only, never raw pin numbers.
   Change it only after a new revision of the Electrical Master Document.
 - `tools/flash.py` finds the board by its USB chip ID (CH9102/CH343), uploads, then prints the first
   seconds of serial output without resetting the board. Close the serial monitor first. Run inside `firmware/`:
