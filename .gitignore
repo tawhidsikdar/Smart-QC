@@ -29,6 +29,9 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 
+# --- Firmware build output (PlatformIO / pioarduino) ---
+.pio/
+
 # --- Editor and Windows junk ---
 .vscode/
 Thumbs.db
